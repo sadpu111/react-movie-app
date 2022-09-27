@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useParams } from "react-router-dom"; // <Route path="/movie/:id" element={<Detail />}> 에서 변수(:id) 값만 호출
+import styles from "./Detail.module.css";
 
 function Detail () {
   const {id} = useParams();
@@ -10,7 +11,9 @@ function Detail () {
   useEffect(() => {
     getMovie()
   }, [])
-  return <h1>Detail</h1>
+  return <div className={styles.body}>
+  <h1>Detail</h1>
+  </div>
 }
 
 export default Detail;

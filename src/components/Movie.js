@@ -5,15 +5,15 @@ import styles from "./Movie.module.css";
 
 function Movie({id, coverImg, title, summary, genres}) {
   return (
-  <div class={styles.thumbnail}>
+  <div className={styles.thumbnail}>
     <a href={`/movie/${id}`}>
-      <img class={styles.coverImg}src={coverImg} />
+      <img className={styles.coverImg}src={coverImg} />
     </a>
-    <h2 class={styles.title}>
+    <h2 className={styles.title}>
       <Link to={`/movie/${id}`}>{title}</Link>
     </h2>
     <p>{summary}</p>
-    <ul class={styles.genres}>
+    <ul className={styles.genres}>
       {genres === null ? "" : genres.map((genre) => <li key={genre}>{genre}</li>)} 
     </ul>
 </div>)
@@ -24,7 +24,7 @@ Movie.propTypes = {
   id: PropTypes.number.isRequired,
   coverImg: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  summary: PropTypes.string.isRequired,
+  summary: PropTypes.string,
   genres: PropTypes.arrayOf(PropTypes.string).isRequired, // stringd을 가진 array
 }
 

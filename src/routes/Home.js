@@ -15,7 +15,7 @@ function Home() {
   }, []); */ 
   const getMovioes = async () => { // 위의 .then과 같은 기능
     const json = await (
-      await fetch(`https://yts.mx/api/v2/list_movies.json?minimum_rating=9.0&sort_by=year`)
+      await fetch(`https://yts.mx/api/v2/list_movies.json?minimum_rating=8.9&sort_by=year`)
       ).json();
     setMovies(json.data.movies);
     setLoading(false);
@@ -25,9 +25,10 @@ function Home() {
   }, []);
   return (
 <div>
-  {loading ? <h1 class={styles.loader}>Loading...</h1> : 
-  <div class={styles.container}>{movies.map(movie =>
-    (<Movie 
+  {loading ? <h1 className={styles.loader}>Loading...</h1> : 
+  <div className={styles.container}>{movies.map(movie =>
+    (
+    <Movie 
         key={movie.id}
         id={movie.id}
         coverImg={movie.medium_cover_image}
